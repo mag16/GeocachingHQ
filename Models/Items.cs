@@ -9,7 +9,8 @@ namespace Geocaches.Models
     public class Item 
     {
         public int Id { get; set; }
-
+        [Required]
+        [MaxLength(50, ErrorMessage = "Name field cannot exceed 50 characters")]  //set limit on name field to 50 chars max.
         public string Name { get; set; }
 
         public int Geocache { get; set; }

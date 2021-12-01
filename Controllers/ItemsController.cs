@@ -83,12 +83,7 @@ namespace GeocachingApi.Controllers {
                 Regex reg = new Regex ("^[A-Z0-9]*$");
                 Match match = reg.Match (item.Name);
 
-                //TODO: item name should be unique(set in items model), contain 50 chars max and only allow letters,numbers,spaces
-                int nameLength = item.Name.ToCharArray ().Count ();
-                if (nameLength > 50) {
-                    Console.WriteLine ("Item name cannot be longer than 50 characters long.");
-                }
-
+                //TODO: item name should be unique(set in items model), contain 50 chars max(items model) and only allow letters,numbers,spaces
                 if (match.Success) {
                     Console.WriteLine ("Item name: " + match.Value);
                 } else {

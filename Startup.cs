@@ -32,7 +32,7 @@ namespace GeocachingApi {
             });
 
             // services.AddDbContext<GeocachesContext> (options =>
-            //     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            //     options.UseNpgsql(Configuration.GetConnectionString("geocachinghq")));
 
             services.AddSwaggerGen (c => {
                 c.SwaggerDoc ("v1", new OpenApiInfo { Title = "GeocachingApi", Version = "v1" });
