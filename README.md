@@ -26,4 +26,4 @@ dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 5.0.2
 * `id`: integer, the database will automatically generate it.
 * `name`: string, item name.
 * `geocache`: integer, geocache id.
-* `isActive`: bool, true if item is active.
+* `isActive`: date, when item was added.
