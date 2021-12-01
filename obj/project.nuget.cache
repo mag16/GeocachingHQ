@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yX0pc0HNUlL1wSKOCG30orJSuKCj3P1ivqPqOLerSMfLGb0geOX1nPSzQNjXwmKBhe4sfTW2a0VH8bf5vtQJpg==",
+  "dgSpecHash": "zcEGUYw3g82w7Kl7ELl8s/aY4mzDVPxHA7dUBUKMvE7haChsiKFdE3G23BoFfQ0YUQpCpvGbwOo2Lp8jxjzKzw==",
   "success": true,
   "projectFilePath": "/Users/marcoguzman/GeocachingApi/GeocachingApi.csproj",
   "expectedPackageFiles": [
@@ -27,6 +27,7 @@
     "/Users/marcoguzman/.nuget/packages/microsoft.entityframeworkcore.inmemory/5.0.0/microsoft.entityframeworkcore.inmemory.5.0.0.nupkg.sha512",
     "/Users/marcoguzman/.nuget/packages/microsoft.entityframeworkcore.relational/5.0.2/microsoft.entityframeworkcore.relational.5.0.2.nupkg.sha512",
     "/Users/marcoguzman/.nuget/packages/microsoft.entityframeworkcore.sqlserver/5.0.0/microsoft.entityframeworkcore.sqlserver.5.0.0.nupkg.sha512",
+    "/Users/marcoguzman/.nuget/packages/microsoft.entityframeworkcore.tools/5.0.0/microsoft.entityframeworkcore.tools.5.0.0.nupkg.sha512",
     "/Users/marcoguzman/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/Users/marcoguzman/.nuget/packages/microsoft.extensions.caching.abstractions/5.0.0/microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "/Users/marcoguzman/.nuget/packages/microsoft.extensions.caching.memory/5.0.0/microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",

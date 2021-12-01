@@ -28,7 +28,7 @@ namespace GeocachingApi {
             services.AddControllers ();
             services.AddDbContext<GeocachesContext> (options => {
                 options.EnableDetailedErrors ();
-                options.UseNpgsql (Configuration.GetConnectionString ("GeocachingHQ.dev"));
+                options.UseNpgsql(Configuration.GetConnectionString("geocachinghq"));
             });
 
             // services.AddDbContext<GeocachesContext> (options =>

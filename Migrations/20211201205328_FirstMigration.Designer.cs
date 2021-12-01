@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GeocachingApi.Migrations
 {
     [DbContext(typeof(GeocachesContext))]
-    [Migration("20211201074009_FirstMigration")]
+    [Migration("20211201205328_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
