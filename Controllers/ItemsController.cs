@@ -79,17 +79,6 @@ namespace GeocachingApi.Controllers {
                     isActive = today,
                 };
 
-                //Regular expression to check for letters,numbers,spaces in Name field.
-                Regex reg = new Regex ("^[A-Z0-9]*$");
-                Match match = reg.Match (item.Name);
-
-                //TODO: item name should be unique(set in items model), contain 50 chars max(items model) and only allow letters,numbers,spaces
-                if (match.Success) {
-                    Console.WriteLine ("Item name: " + match.Value);
-                } else {
-                    return null;
-                }
-
                 _context.Item.Add (requestBody);
                 await _context.SaveChangesAsync();
 
