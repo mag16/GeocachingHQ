@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GeocachingApi.Controllers {
-    [Route ("api/[controller]")]
+    //[Route ("api/[geocaches]")]
     [ApiController]
     public class GeocachesController : ControllerBase {
         private readonly GeocachesContext _context;
@@ -18,13 +18,13 @@ namespace GeocachingApi.Controllers {
         }
 
         // GET: api/Geocaches
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Geocache>>> GetGeocaches() {
+        [HttpGet ("api/geocaches")]
+        public async Task<ActionResult<IEnumerable<Geocache>>> GetGeocaches () {
             return await _context.Geocache.ToListAsync ();
         }
 
-        // GET: api/Geocahes/id
-        [HttpGet ("{id}")]
+        // GET: api/geocaches/id
+        [HttpGet ("api/geocaches/{id}")]
         public async Task<ActionResult<Geocache>> GetGeocache (int id) {
             var geocache = await _context.Geocache.FindAsync (id);
 
@@ -36,7 +36,7 @@ namespace GeocachingApi.Controllers {
         }
 
         // PUT: api/Geocaches/id
-        [HttpPut ("{id}")]
+        [HttpPut ("api/geocaches/{id}")]
         public async Task<IActionResult> PutGeocache (int id, Geocache geocache) {
             if (id != geocache.Id) {
                 return BadRequest ();
@@ -58,10 +58,9 @@ namespace GeocachingApi.Controllers {
         }
 
         // POST: api/Geocaches
-        [HttpPost ("/api/geocaches/")]
+        [HttpPost ("/api/geocaches")]
         public async Task<ActionResult<Geocache>> PostGeocache (Geocache geocache) {
-            try 
-            {
+            try {
                 if (!ModelState.IsValid) {
                     return BadRequest ("Model state is not valid.");
                 }
@@ -76,9 +75,7 @@ namespace GeocachingApi.Controllers {
                 await _context.SaveChangesAsync ();
 
                 return Ok ($"Geocache created: {requestBody.Name}");
-            } 
-            catch (Exception) 
-            {
+            } catch (Exception) {
                 return StatusCode (StatusCodes.Status500InternalServerError, "Error creating new Geocache record");
             }
 
@@ -86,7 +83,7 @@ namespace GeocachingApi.Controllers {
         }
 
         // DELETE: api/Geocahes/5
-        [HttpDelete ("{id}")]
+        [HttpDelete ("api/geocaches/{id}")]
         public async Task<IActionResult> DeleteGeocache (int id) {
             var geocache = await _context.Geocache.FindAsync (id);
             if (geocache == null) {
@@ -99,6 +96,6 @@ namespace GeocachingApi.Controllers {
             return NoContent ();
         }
 
-        private bool GeocacheExists(int id) => _context.Geocache.Any(e => e.Id == id);
+        private bool GeocacheExists (int id) => _context.Geocache.Any (e => e.Id == id);
     }
 }

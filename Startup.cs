@@ -28,7 +28,7 @@ namespace GeocachingApi {
             services.AddControllers ();
             services.AddDbContext<GeocachesContext> (options => {
                 options.EnableDetailedErrors ();
-                options.UseNpgsql(Configuration.GetConnectionString("geocachinghq"));
+                options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq"));
             });
 
             // services.AddDbContext<GeocachesContext> (options =>
@@ -54,8 +54,17 @@ namespace GeocachingApi {
             app.UseAuthorization ();
 
             app.UseEndpoints (endpoints => {
-                endpoints.MapControllers ();
+                // endpoints.MapControllers();
+                endpoints.MapControllerRoute ("geocaches", "geocaches/{id?}",
+                    defaults : new { controller = "Geocaches", action = "Index" });
+
+                //This method established yet another "convention" route, for the User/Index action.
+                endpoints.MapControllerRoute ("items", "items/{id?}",
+                    defaults : new { controller = "Items", action = "Index" });
+
             });
+         
+
         }
     }
 }
