@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Geocaches.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace GeocachingApi {
@@ -28,7 +21,7 @@ namespace GeocachingApi {
             services.AddControllers ();
             services.AddDbContext<GeocachesContext> (options => {
                 options.EnableDetailedErrors ();
-                options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq"));
+                options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq")); 
             });
 
             // services.AddDbContext<GeocachesContext> (options =>
@@ -55,16 +48,15 @@ namespace GeocachingApi {
 
             app.UseEndpoints (endpoints => {
                 // endpoints.MapControllers();
-                endpoints.MapControllerRoute ("geocaches", "geocaches/{id?}",
+                endpoints.MapControllerRoute ("geocaches", "api/geocaches/{id?}",
                     defaults : new { controller = "Geocaches", action = "Index" });
 
                 //This method established yet another "convention" route, for the User/Index action.
-                endpoints.MapControllerRoute ("items", "items/{id?}",
+                endpoints.MapControllerRoute ("items", "api/items/{id?}",
                     defaults : new { controller = "Items", action = "Index" });
 
             });
-         
-
+    
         }
     }
 }

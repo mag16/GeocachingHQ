@@ -96,6 +96,6 @@ namespace GeocachingApi.Controllers {
             return NoContent ();
         }
 
-        private bool GeocacheExists (int id) => _context.Geocache.Any (e => e.Id == id);
+        private bool GeocacheExists (int id) => _context.Geocache.Any (e => e.Id == id);  
     }
 }

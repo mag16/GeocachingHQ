@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Geocaches.Models;
 using Microsoft.AspNetCore.Http;
@@ -59,10 +58,8 @@ namespace GeocachingApi.Controllers {
         }
 
         // POST: api/geocaches/:id
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost ("/api/items")]
         public async Task<ActionResult<Item>> PostItem (Item item) {
-
             try {
                 if (!ModelState.IsValid) {
                     return BadRequest ("Model state is not valid.");
@@ -104,7 +101,7 @@ namespace GeocachingApi.Controllers {
 
         // 5. Only active items should be allowed to be moved, and items cannot be moved to a geocache that already contains 3 or more items.
         [HttpPatch ("/api/geocaches/{id}")]
-        public async Task<ActionResult<Item>> MoveItem(Item item) {
+        public async Task<ActionResult<Item>> MoveItem (Item item) {
 
             var GeocacheItems = new Geocache ();
 
@@ -116,12 +113,12 @@ namespace GeocachingApi.Controllers {
                 return null; //no data is available as we cannot add inactive items
             }
             //items cannot be moved to a geocache that already contains 3 or more items
-            if (GeocacheItems.Items.Count() > 3) {
+            if (GeocacheItems.Items.Count () > 3) {
                 Console.WriteLine ("Cannot store more than three items in this Geocache ");
                 return null;
             }
 
-            _context.Item.Add(item);
+            _context.Item.Add (item);
             await _context.SaveChangesAsync ();
 
             return Ok ($"Item added to Geocache: { GeocacheItems.Items }");
