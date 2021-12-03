@@ -1,6 +1,7 @@
 using Geocaches.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,7 @@ namespace GeocachingApi {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
 
-            services.AddControllers ();
+            services.AddControllers ().AddNewtonsoftJson();
             services.AddDbContext<AppDbContext> (options => {
                 options.EnableDetailedErrors ();
                 options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq"));

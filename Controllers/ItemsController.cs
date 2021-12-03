@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Geocaches.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -100,8 +101,8 @@ namespace GeocachingApi.Controllers {
         }
 
         // 5. Only active items should be allowed to be moved, and items cannot be moved to a geocache that already contains 3 or more items.
-        [HttpPatch ("/api/geocaches/{id}")]
-        public async Task<ActionResult<Item>> MoveItem (Item item) {
+        [HttpPatch ("/api/items/{id}")]
+        public async Task<ActionResult<Item>> MoveItem (Item item, [FromBody] JsonPatchDocument<Item> patchDoc) {
 
             var GeocacheItems = new Geocache ();
 
@@ -118,10 +119,25 @@ namespace GeocachingApi.Controllers {
                 return null;
             }
 
-            _context.Item.Add (item);
-            await _context.SaveChangesAsync ();
+            //code to patch our items
+            if (patchDoc != null) {
+                var items = new Item ();
+                patchDoc.ApplyTo (items, ModelState);
 
-            return Ok ($"Item added to Geocache: { GeocacheItems.Items }");
+                if (!ModelState.IsValid) {
+                    return BadRequest (ModelState);
+                }
+
+                _context.Item.Add (item);
+                await _context.SaveChangesAsync ();
+
+                return Ok ($"Item added to Geocache: { GeocacheItems.Items }");
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+
         }
 
         private bool ItemExists (int id) => _context.Item.Any (e => e.Id == id);
