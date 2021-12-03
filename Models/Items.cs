@@ -10,7 +10,7 @@ namespace Geocaches.Models {
 
         [Required]
         [MaxLength (50, ErrorMessage = "Name field cannot exceed 50 characters")] //set limit on name field to 50 chars max.
-        [RegularExpression ("^[A-Z0-9]*$", ErrorMessage = "Name field only allows letters, numbers and spaces.")]
+        [RegularExpression ("^[a-zA-Z0-9 ]*$", ErrorMessage = "Name field only allows letters, numbers and spaces.")]
         public string Name { get; set; }
 
         public int Geocache { get; set; }
