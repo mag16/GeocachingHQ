@@ -132,10 +132,8 @@ namespace GeocachingApi.Controllers {
                 await _context.SaveChangesAsync ();
 
                 return Ok ($"Item added to Geocache: { GeocacheItems.Items }");
-            }
-            else
-            {
-                return BadRequest(ModelState);
+            } else {
+                return BadRequest (ModelState);
             }
 
         }
