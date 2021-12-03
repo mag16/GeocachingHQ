@@ -19,16 +19,10 @@ namespace GeocachingApi {
         public void ConfigureServices (IServiceCollection services) {
 
             services.AddControllers ();
-            services.AddDbContext<GeocachesContext> (options => {
+            services.AddDbContext<AppDbContext> (options => {
                 options.EnableDetailedErrors ();
                 options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq"));
             });
-
-            services.AddDbContext<ItemContext> (options => {
-                options.EnableDetailedErrors ();
-                options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq"));
-            });
-
             // services.AddDbContext<GeocachesContext> (options =>
             //     options.UseNpgsql(Configuration.GetConnectionString("geocachinghq")));
 

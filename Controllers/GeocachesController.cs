@@ -11,9 +11,9 @@ namespace GeocachingApi.Controllers {
     //[Route ("api/[geocaches]")]
     [ApiController]
     public class GeocachesController : ControllerBase {
-        private readonly GeocachesContext _context;
+        private readonly AppDbContext _context;
 
-        public GeocachesController(GeocachesContext context) {
+        public GeocachesController (AppDbContext context) {
             _context = context;
         }
 
@@ -96,6 +96,6 @@ namespace GeocachingApi.Controllers {
             return NoContent ();
         }
 
-        private bool GeocacheExists (int id) => _context.Geocache.Any (e => e.Id == id);  
+        private bool GeocacheExists (int id) => _context.Geocache.Any (e => e.Id == id);
     }
 }
