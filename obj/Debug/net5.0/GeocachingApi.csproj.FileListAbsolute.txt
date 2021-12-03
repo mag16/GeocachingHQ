@@ -135,4 +135,3 @@
 /Users/marcoguzman/GeocachingApi/bin/Debug/net5.0/Microsoft.AspNetCore.JsonPatch.dll
 /Users/marcoguzman/GeocachingApi/bin/Debug/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/marcoguzman/GeocachingApi/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll
-/Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.csproj.CopyComplete

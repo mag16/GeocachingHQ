@@ -68,11 +68,11 @@ namespace GeocachingApi.Controllers {
 
                 var today = DateTime.Today;
 
-                var GeocacheId = new Geocache ();
+                var GeocacheId = new Geocache();
 
                 var requestBody = new Item {
                     Name = item.Name,
-                    Geocache = (int) GeocacheId.Id,
+                    Geocache = GeocacheId,
                     isActive = today,
                 };
 

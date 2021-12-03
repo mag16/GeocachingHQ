@@ -13,7 +13,7 @@ namespace Geocaches.Models {
         [RegularExpression ("^[a-zA-Z0-9 ]*$", ErrorMessage = "Name field only allows letters, numbers and spaces.")]
         public string Name { get; set; }
 
-        public int Geocache { get; set; }
+        public Geocache Geocache { get; set; }
 
         public DateTime isActive { get; set; }
     }
