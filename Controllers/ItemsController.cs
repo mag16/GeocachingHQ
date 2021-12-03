@@ -102,8 +102,8 @@ namespace GeocachingApi.Controllers {
 
         // 5. Only active items should be allowed to be moved, and items cannot be moved to a geocache that already contains 3 or more items.
         [HttpPatch ("/api/items/{id}")]
-        public async Task<ActionResult<Item>> MoveItem (Item item, [FromBody] JsonPatchDocument<Item> patchDoc) {
-
+        public async Task<ActionResult<Item>> MoveItem ([FromBody] JsonPatchDocument<Item> patchDoc) {
+            var item = new Item();
             var GeocacheItems = new Geocache ();
 
             //items no longer active after 90 days
