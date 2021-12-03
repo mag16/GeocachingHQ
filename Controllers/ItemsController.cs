@@ -66,14 +66,16 @@ namespace GeocachingApi.Controllers {
                     return BadRequest ("Model state is not valid.");
                 }
 
-                var today = DateTime.Today;
+                DateTime today = DateTime.Today;
+                var timeItemAdded = today.ToString ("g");
 
-                var GeocacheId = new Geocache();
+                var GeocacheId = new Geocache ();
 
-                var requestBody = new Item {
+                var requestBody = new Item
+                {
                     Name = item.Name,
                     Geocache = GeocacheId,
-                    isActive = today,
+                    isActive = Convert.ToDateTime(timeItemAdded)
                 };
 
                 _context.Item.Add (requestBody);
@@ -103,7 +105,7 @@ namespace GeocachingApi.Controllers {
         // 5. Only active items should be allowed to be moved, and items cannot be moved to a geocache that already contains 3 or more items.
         [HttpPatch ("/api/items/{id}")]
         public async Task<ActionResult<Item>> MoveItem ([FromBody] JsonPatchDocument<Item> patchDoc) {
-            var item = new Item();
+            var item = new Item ();
             var GeocacheItems = new Geocache ();
 
             //items no longer active after 90 days
