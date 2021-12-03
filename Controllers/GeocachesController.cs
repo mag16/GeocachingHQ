@@ -13,7 +13,7 @@ namespace GeocachingApi.Controllers {
     public class GeocachesController : ControllerBase {
         private readonly GeocachesContext _context;
 
-        public GeocachesController (GeocachesContext context) {
+        public GeocachesController(GeocachesContext context) {
             _context = context;
         }
 

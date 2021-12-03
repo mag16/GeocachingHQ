@@ -12,15 +12,12 @@
 /Users/marcoguzman/GeocachingApi/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.csproj.AssemblyReference.cache
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.GeneratedMSBuildEditorConfig.editorconfig
-/Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.AssemblyInfoInputs.cache
-/Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.AssemblyInfo.cs
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.csproj.CoreCompileInputs.cache
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.MvcApplicationPartsAssemblyInfo.cs
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.MvcApplicationPartsAssemblyInfo.cache
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/staticwebassets/GeocachingApi.StaticWebAssets.Manifest.cache
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/staticwebassets/GeocachingApi.StaticWebAssets.xml
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/scopedcss/bundle/GeocachingApi.styles.css
-/Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.RazorTargetAssemblyInfo.cache
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.dll
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/ref/GeocachingApi.dll
 /Users/marcoguzman/GeocachingApi/obj/Debug/net5.0/GeocachingApi.pdb

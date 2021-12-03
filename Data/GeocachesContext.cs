@@ -8,7 +8,7 @@ namespace Geocaches.Models {
         }
 
         public virtual DbSet<Geocache> Geocache { get; set; }
-        public virtual DbSet<Item> Item { get; set; }
+       // public virtual DbSet<Item> Item { get; set; }
     }
 
 }

@@ -21,7 +21,12 @@ namespace GeocachingApi {
             services.AddControllers ();
             services.AddDbContext<GeocachesContext> (options => {
                 options.EnableDetailedErrors ();
-                options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq")); 
+                options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq"));
+            });
+
+            services.AddDbContext<ItemContext> (options => {
+                options.EnableDetailedErrors ();
+                options.UseNpgsql (Configuration.GetConnectionString ("geocachinghq"));
             });
 
             // services.AddDbContext<GeocachesContext> (options =>
@@ -56,7 +61,7 @@ namespace GeocachingApi {
                     defaults : new { controller = "Items", action = "Index" });
 
             });
-    
+
         }
     }
 }

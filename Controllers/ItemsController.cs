@@ -11,9 +11,9 @@ namespace GeocachingApi.Controllers {
     //[Route ("api/[items]")]
     [ApiController]
     public class ItemsController : ControllerBase {
-        private readonly GeocachesContext _context;
+        private readonly ItemContext _context;
 
-        public ItemsController (GeocachesContext context) {
+        public ItemsController (ItemContext context) {
             _context = context;
         }
 
