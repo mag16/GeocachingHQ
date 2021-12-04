@@ -67,9 +67,10 @@ namespace GeocachingApi.Controllers {
                 }
 
                 DateTime today = DateTime.Today;
-                var timeItemAdded = today.ToString ("g");
+                var timeItemAdded = today.ToString("g");
 
-                var GeocacheId = new Geocache ();
+                var GeocacheId = new Geocache();
+                //var id = GeocacheId.Id;
 
                 var requestBody = new Item
                 {
@@ -108,32 +109,33 @@ namespace GeocachingApi.Controllers {
             var item = new Item ();
             var GeocacheItems = new Geocache ();
 
-            //items no longer active after 90 days
-            DateTime isActive = DateTime.Now;
-            DateTime itemInactivePeriod = isActive.AddMonths (3);
-            if (itemInactivePeriod > DateTime.Now) {
-                Console.WriteLine ("Item has been on longer than 90 days and is no longer active.Cannot move to other Geocache.");
-                return null; //no data is available as we cannot add inactive items
-            }
-            //items cannot be moved to a geocache that already contains 3 or more items
-            if (GeocacheItems.Items.Count () > 3) {
-                Console.WriteLine ("Cannot store more than three items in this Geocache ");
-                return null;
-            }
+            // //items no longer active after 90 days
+            // DateTime isActive = DateTime.Now;
+            // DateTime itemInactivePeriod = isActive.AddMonths (3);
+            // if (itemInactivePeriod > DateTime.Now) {
+            //     Console.WriteLine ("Item has been on longer than 90 days and is no longer active.Cannot move to other Geocache.");
+            //     return null; //no data is available as we cannot add inactive items
+            // }
+            // //items cannot be moved to a geocache that already contains 3 or more items
+            // if (GeocacheItems.Items.Count () > 3) {
+            //     Console.WriteLine ("Cannot store more than three items in this Geocache ");
+            //     return null;
+            // }
 
             //code to patch our items
             if (patchDoc != null) {
                 var items = new Item ();
+             
                 patchDoc.ApplyTo (items, ModelState);
 
                 if (!ModelState.IsValid) {
                     return BadRequest (ModelState);
                 }
 
-                _context.Item.Add (item);
-                await _context.SaveChangesAsync ();
+                // _context.Item.Add (item);
+                // await _context.SaveChangesAsync ();
 
-                return Ok ($"Item added to Geocache: { GeocacheItems.Items }");
+                // return Ok ($"Item added to Geocache: { GeocacheItems.Items }");
             } else {
                 return BadRequest (ModelState);
             }
