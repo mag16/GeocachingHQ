@@ -8,6 +8,6 @@ namespace Geocaches.Models {
         public string Name { get; set; }
         public string Coordinate { get; set; }
 
-        public List<Item> Items { get; set; } = new List<Item> ();
+        public List <Item> Items { get; set; }
     }
 }

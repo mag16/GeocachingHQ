@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Geocaches.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -67,16 +66,14 @@ namespace GeocachingApi.Controllers {
                 }
 
                 DateTime today = DateTime.Today;
-                var timeItemAdded = today.ToString("g");
+                var timeItemAdded = today.ToString ("g");
 
-                var GeocacheId = new Geocache();
-                //var id = GeocacheId.Id;
+                var GeocacheId = new Geocache ();
 
-                var requestBody = new Item
-                {
+                var requestBody = new Item {
                     Name = item.Name,
                     Geocache = GeocacheId,
-                    isActive = Convert.ToDateTime(timeItemAdded)
+                    isActive = Convert.ToDateTime (timeItemAdded)
                 };
 
                 _context.Item.Add (requestBody);
@@ -101,45 +98,6 @@ namespace GeocachingApi.Controllers {
             await _context.SaveChangesAsync ();
 
             return NoContent ();
-        }
-
-        // 5. Only active items should be allowed to be moved, and items cannot be moved to a geocache that already contains 3 or more items.
-        [HttpPatch ("/api/items/{id}")]
-        public async Task<ActionResult<Item>> MoveItem ([FromBody] JsonPatchDocument<Item> patchDoc) {
-            var item = new Item ();
-            var GeocacheItems = new Geocache ();
-
-            // //items no longer active after 90 days
-            // DateTime isActive = DateTime.Now;
-            // DateTime itemInactivePeriod = isActive.AddMonths (3);
-            // if (itemInactivePeriod > DateTime.Now) {
-            //     Console.WriteLine ("Item has been on longer than 90 days and is no longer active.Cannot move to other Geocache.");
-            //     return null; //no data is available as we cannot add inactive items
-            // }
-            // //items cannot be moved to a geocache that already contains 3 or more items
-            // if (GeocacheItems.Items.Count () > 3) {
-            //     Console.WriteLine ("Cannot store more than three items in this Geocache ");
-            //     return null;
-            // }
-
-            //code to patch our items
-            if (patchDoc != null) {
-                var items = new Item ();
-             
-                patchDoc.ApplyTo (items, ModelState);
-
-                if (!ModelState.IsValid) {
-                    return BadRequest (ModelState);
-                }
-
-                // _context.Item.Add (item);
-                // await _context.SaveChangesAsync ();
-
-                // return Ok ($"Item added to Geocache: { GeocacheItems.Items }");
-            } else {
-                return BadRequest (ModelState);
-            }
-
         }
 
         private bool ItemExists (int id) => _context.Item.Any (e => e.Id == id);
